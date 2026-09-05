@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { siteName = "Visit Vadu Crișului" } = Astro.props;
+const logoUrl = `${import.meta.env.BASE_URL}logo.PNG`;
 ---
 
 <div
@@ -21,7 +22,7 @@ const { siteName = "Visit Vadu Crișului" } = Astro.props;
     <!-- Logo -->
     <div class="animate-fade-in mb-6 opacity-0" style="animation-delay: 0.1s;">
       <img
-        src="/logo.PNG"
+        src={logoUrl}
         alt={siteName}
         width="160"
         height="160"

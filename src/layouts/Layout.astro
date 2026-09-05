@@ -1,13 +1,16 @@
----                             
-  import '../styles/global.css'   
----     
+---
+import '../styles/global.css';
+
+const faviconSvgUrl = `${import.meta.env.BASE_URL}favicon.svg`;
+const faviconIcoUrl = `${import.meta.env.BASE_URL}favicon.ico`;
+---
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={faviconSvgUrl} />
+		<link rel="icon" href={faviconIcoUrl} />
 		<meta name="generator" content={Astro.generator} />
 		<title>Descoperă Vadu Crișului</title>
 	</head>
