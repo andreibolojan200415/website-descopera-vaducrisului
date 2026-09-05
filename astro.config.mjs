@@ -5,8 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://andreibolojan200415.github.io/website-descopera-vaducrisului/',
-  base: '/website-descopera-vaducrisului/',
+    site: 'https://visit-vaducrisului.ro',
   vite: {
     plugins: [tailwindcss()]
   }
