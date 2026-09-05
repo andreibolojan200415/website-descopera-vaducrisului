@@ -1,0 +1,150 @@
+---
+interface Props {
+  siteName?: string;
+}
+
+const { siteName = "Visit Vadu Crișului" } = Astro.props;
+---
+
+<div
+  class="relative flex min-h-screen flex-col overflow-hidden bg-neutral-50 font-sans antialiased text-neutral-800"
+>
+  <!-- Static soft background -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#fdf9f5] via-[#fbe9dd] to-[#e2ece9]"></div>
+  <div class="bg-blob bg-blob-1 absolute -z-10"></div>
+  <div class="bg-blob bg-blob-2 absolute -z-10"></div>
+
+  <!-- Main content -->
+  <main
+    class="relative z-10 flex flex-1 flex-col items-center justify-center px-6 text-center"
+  >
+    <!-- Logo -->
+    <div class="animate-fade-in mb-6 opacity-0" style="animation-delay: 0.1s;">
+      <img
+        src="/logo.PNG"
+        alt={siteName}
+        width="160"
+        height="160"
+        loading="eager"
+        class="h-32 w-32 object-contain sm:h-40 sm:w-40"
+      />
+    </div>
+
+    <!-- Title -->
+    <h1
+      class="animate-fade-in-up mb-5 text-4xl font-semibold tracking-tight text-neutral-900 opacity-0 sm:text-5xl md:text-6xl"
+      style="animation-delay: 0.3s;"
+    >
+      Site-ul se lansează în curând<span id="dots" class="inline-block min-w-[1.2em] text-left"></span>
+    </h1>
+
+    <!-- Message -->
+    <p
+      class="animate-fade-in-up max-w-lg text-lg leading-relaxed text-neutral-500 opacity-0"
+      style="animation-delay: 0.5s;"
+    >
+      Lucrăm la ultimele detalii pentru a crea prima experiență turistică rurală digitală din România.
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="animate-fade-in relative z-10 py-6 text-center text-sm text-neutral-400 opacity-0"
+    style="animation-delay: 0.8s;"
+  >
+    © {new Date().getFullYear()} Descoperă Vadu Crișului
+  </footer>
+</div>
+
+<script>
+  function runDotsAnimation() {
+    const dotsContainer = document.getElementById("dots");
+    if (!dotsContainer) return;
+
+    let count = 0;
+    const maxDots = 3;
+    const speed = 850; 
+
+    setInterval(() => {
+      count = (count + 1) % (maxDots + 1);
+      dotsContainer.textContent = ".".repeat(count);
+    }, speed);
+  }
+
+  // Astro view-transitions compatibility & direct execution
+  document.addEventListener("DOMContentLoaded", runDotsAnimation);
+  document.addEventListener("astro:page-load", runDotsAnimation);
+</script>
+
+<style>
+  /* ================================
+     Fade animations
+  ================================= */
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  /* ================================
+     Decorative blobs (static)
+  ================================= */
+
+  .bg-blob {
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.35;
+  }
+
+  .bg-blob-1 {
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: #f8c9a3;
+  }
+
+  .bg-blob-2 {
+    right: -80px;
+    bottom: -80px;
+    width: 350px;
+    height: 350px;
+    background: #a3c9c1;
+  }
+
+  /* ================================
+     Accessibility
+  ================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-fade-in-up {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

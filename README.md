@@ -44,3 +44,15 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## GitHub Pages
+
+This site is configured to deploy to GitHub Pages at:
+
+`https://andreibolojan200415.github.io/website-descopera-vaducrisului/`
+
+To publish it:
+
+1. Push the repository to GitHub.
+2. In the repository settings, enable GitHub Pages and select GitHub Actions as the source.
+3. Push to `main`, or run the "Deploy to GitHub Pages" workflow manually.
